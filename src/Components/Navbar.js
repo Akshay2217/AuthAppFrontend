@@ -37,28 +37,28 @@ const Navbar = () => {
       <Link
         to="/"
         onClick={handleDrawerToggle} // Close drawer when link is clicked
-        style={{ textDecoration: 'none', color: 'white', display: 'block', padding: '10px' }}
+        style={{ textDecoration: 'none', color: 'black', display: 'block', padding: '10px' }}
       >
         Products
       </Link>
       <Link
         to="/home"
         onClick={handleDrawerToggle} // Close drawer when link is clicked
-        style={{ textDecoration: 'none', color: 'white', display: 'block', padding: '10px' }}
+        style={{ textDecoration: 'none', color: 'black', display: 'block', padding: '10px' }}
       >
         Home
       </Link>
       <Link
         to="/about"
         onClick={handleDrawerToggle}
-        style={{ textDecoration: 'none', color: 'white', display: 'block', padding: '10px' }}
+        style={{ textDecoration: 'none', color: 'black', display: 'block', padding: '10px' }}
       >
         About
       </Link>
       <Link
         to="/contact"
         onClick={handleDrawerToggle}
-        style={{ textDecoration: 'none', color: 'white', display: 'block', padding: '10px' }}
+        style={{ textDecoration: 'none', color: 'black', display: 'block', padding: '10px' }}
       >
         Contact
       </Link>
@@ -66,7 +66,7 @@ const Navbar = () => {
         onClick={handleLogout}
         style={{
           textDecoration: 'none',
-          color: 'white',
+          color: 'black',
           backgroundColor: 'red',
           border: 'none',
           padding: '10px',
@@ -85,14 +85,14 @@ const Navbar = () => {
       <Link
         to="/login"
         onClick={handleDrawerToggle}
-        style={{ textDecoration: 'none', color: 'white', display: 'block', padding: '10px' }}
+        style={{ textDecoration: 'none', color: 'black', display: 'block', padding: '10px' }}
       >
         Login
       </Link>
       <Link
         to="/register"
         onClick={handleDrawerToggle}
-        style={{ textDecoration: 'none', color: 'white', display: 'block', padding: '10px' }}
+        style={{ textDecoration: 'none', color: 'black', display: 'block', padding: '10px' }}
       >
         Register
       </Link>
@@ -135,7 +135,7 @@ const Navbar = () => {
           style: {
             width: '50%',
             maxWidth: '100%',
-            backgroundColor: 'black',
+            // backgroundColor: 'black',
             alignItems: 'center',
           },
         }}
