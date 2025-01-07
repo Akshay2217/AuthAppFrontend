@@ -27,8 +27,8 @@ const Login = () => {
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const data = await dispatch(loginUser(values)); // Assuming loginUser is an async action creator
-        if (data.payload.success) {
+        const response = await dispatch(loginUser(values)); // Assuming loginUser is an async action creator
+        if ( response.status === 200) {
           toast.success('Login successful');
           resetForm(); // Reset form on successful login
         }
