@@ -42,14 +42,7 @@ const Login = () => {
     setShowPassword((prev) => !prev); // Toggle showPassword state
   };
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/home'); // Redirect to Home page after successful login
-    }
-    if (error) {
-      toast.error(error.message); // Notify user of login failure
-    }
-  }, [isAuthenticated, error, navigate]); // Add navigate to dependency array
+// Add navigate to dependency array
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">

@@ -37,15 +37,18 @@ const RegisterForm = () => {
         onSubmit: async(values, { resetForm }) => {
             try {
                 console.log(values); // Log values for debugging
-               const data =  await dispatch(registerUser(values));
-                console.log("data",data.payload.message) 
-                toast.success(data.payload.message)// Assuming registerUser is an async action creator
-
-
-                resetForm(); // Reset form after successful submission
-                 navigate('/login');
+               const response =  await dispatch(registerUser(values));
+               if(response.status == 200 ){
+                 toast.success(response.payload.message)
+                 resetForm(); // Reset form after successful submission
+                 navigate('/login');// Assuming registerUser is an async action creator
+               } else {
+                toast.error(response.payload.message)
+               }
+                console.log("response",response.payload.message) 
+                
               } catch (error) {
-                console.error('Registration error:', error);
+                // console.error('Registration error:', error);
                  // Log error for debugging
                 // toast.error('Registration failed'); // Notify user of registration failure
               }
