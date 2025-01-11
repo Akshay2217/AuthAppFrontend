@@ -19,6 +19,7 @@ import Login from './pages/login';
 import PrivateRoute from './Components/PrivateRoute';
 import { useSelector } from 'react-redux';
 import Products from './Components/Products';
+import Profile from './pages/Profile';
 
 
 
@@ -85,6 +86,14 @@ function App() {
           element={
             <PrivateRoute>
               <Contact />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
             </PrivateRoute>
           }
         />

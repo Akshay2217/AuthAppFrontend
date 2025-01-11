@@ -62,6 +62,13 @@ const Navbar = () => {
       >
         Contact
       </Link>
+      <Link
+        to="/profile"
+        onClick={handleDrawerToggle}
+        style={{ textDecoration: 'none', color: 'black', display: 'block', padding: '10px' }}
+      >
+        Profile
+      </Link>
       <button
         onClick={handleLogout}
         style={{
@@ -164,6 +171,9 @@ const Navbar = () => {
             </Link>
             <Link to="/contact" style={{ textDecoration: 'none', color: 'white', marginRight: 10, fontWeight: 700 }}>
               Contact
+            </Link>
+            <Link to="/profile" style={{ textDecoration: 'none', color: 'white', marginRight: 10, fontWeight: 700 }}>
+              Profile
             </Link>
             <button
               onClick={handleLogout}

@@ -18,11 +18,30 @@ export const registerUser = createAsyncThunk(
   }
 );
 
+// get user profile
+
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (userData, { rejectWithValue }) => {
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}login`, userData);
+      console.log("response", response)
+      return response;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  }
+);
+
+export const getUser = createAsyncThunk(
+  'auth/UserProfile',
+  async (token, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}getUser`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }, }
+        );
       console.log("response", response)
       return response;
     } catch (err) {
@@ -81,8 +100,8 @@ const authSlice = createSlice({
         state.loading = false;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        localStorage.setItem('token', action.payload.token);
-        state.token = action.payload.token;
+        localStorage.setItem('token', action.payload.data.token);
+        state.token = action?.payload?.data.token;
         state.isAuthenticated = true;
         state.loading = false;
         state.error = null;
@@ -104,6 +123,18 @@ const authSlice = createSlice({
       .addCase(loadUser.rejected, (state, action) => {
         state.error = action.payload;
         state.loading = false;
+      })
+      .addCase(getUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.loading = false;
+      })
+      .addCase(getUser.rejected, (state, action) => {
+        state.error = action.payload;
+        state.loading = false;
+      })
+      .addCase(getUser.pending, (state, action) => {
+        state.loading = false;
+        state.error = null;
       });
   },
 });

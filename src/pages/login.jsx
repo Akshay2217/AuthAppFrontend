@@ -27,10 +27,14 @@ const Login = () => {
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await dispatch(loginUser(values)); // Assuming loginUser is an async action creator
-        if ( response.status === 200) {
+        const response = await dispatch(loginUser(values));
+        console.log("login successfull and response", response) // Assuming loginUser is an async action creator
+        if ( response?.payload?.status === 200) {
           toast.success('Login successful');
-          resetForm(); // Reset form on successful login
+          resetForm();
+          navigate("/home"); // Reset form on successful login
+        }else {
+          toast.error( response?.payload?.message);
         }
       } catch (err) {
         console.error('Login error:', err); // Log error for debugging
